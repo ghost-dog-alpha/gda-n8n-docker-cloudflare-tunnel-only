@@ -9,8 +9,9 @@ services:
   n8n:
     image: docker.n8n.io/n8nio/n8n:latest
     restart: always
-    ports:
-      - ${N8N_PORT}:${N8N_PORT}
+    # Handled by the tunnel service
+    # ports:
+    #  - ${N8N_PORT}:${N8N_PORT}
     environment:
       - N8N_HOST=${N8N_HOST}
       - WEBHOOK_URL=${WEBHOOK_HOST}
