@@ -1,7 +1,7 @@
 services:
   tunnel:
     image: cloudflare/cloudflared:latest
-    restart: unless-stopped
+    restart: always
     command: tunnel run
     environment:
       - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
@@ -20,7 +20,6 @@ services:
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
     volumes:
       - n8n_data:/home/node/.n8n
-      - ${DATA_FOLDER}/local_files:/files
 
 volumes:
   n8n_data:
